@@ -1,13 +1,15 @@
+from typing import List
+
 class Solution:
     def pivotArray(self, nums: List[int], pivot: int) -> List[int]:
-        left = []
-        mid = []
-        right = []
-        for i in nums:
-            if(i < pivot):
-                left.append(i)
-            elif(i == pivot):
-                mid.append(i)
+        less, high, count = [], [], 0
+
+        for num in nums:
+            if num < pivot:
+                less.append(num)
+            elif num == pivot:
+                count += 1
             else:
-                right.append(i)
-        return left + mid + right
+                high.append(num)
+
+        return less + [pivot] * count + high
