@@ -8,8 +8,5 @@ class Solution:
         for i in range(len(s)):
             map1[s[i]] = map1.get(s[i],0) + 1
             map2[t[i]] = map2.get(t[i],0) + 1
-        if(map1 == map2 and len(map1) == len(map2)):
-            return True
-        else:
-            return False            
+        return map1== map2           
         
