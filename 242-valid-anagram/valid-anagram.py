@@ -1,12 +1,10 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        
-        map1 = dict()
-        map2 = dict()
-        if(len(s) != len(t)):
+        if len(s) != len(t):
             return False
-        for i in range(len(s)):
-            map1[s[i]] = map1.get(s[i],0) + 1
-            map2[t[i]] = map2.get(t[i],0) + 1
-        return map1== map2           
-        
+        x = set(s)
+        for i in x:
+            if(s.count(i) != t.count(i)):
+                return False
+        return True
+
