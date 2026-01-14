@@ -4,7 +4,7 @@ class Solution:
         n = len(intervals)
         res = []
         i = 0
-        if n == 1:
+        if n <= 1:
             return intervals
         while(i < n):
             start = intervals[i][0]
