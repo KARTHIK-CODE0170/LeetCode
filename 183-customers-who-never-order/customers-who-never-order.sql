@@ -1,3 +1,8 @@
 /* Write your PL/SQL query statement below */
-SELECT name AS customers FROM Customers 
-WHERE id NOT IN (SELECT customerId FROM Orders);
+SELECT name as customers 
+FROM 
+orders
+RIGHT JOIN
+customers
+ON orders.customerId = customers.id
+WHERE orders.id IS NULL;
