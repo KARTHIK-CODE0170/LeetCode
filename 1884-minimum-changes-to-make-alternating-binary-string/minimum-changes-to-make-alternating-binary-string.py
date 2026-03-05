@@ -8,4 +8,4 @@ class Solution:
                One += 1
             elif((i % 2 == 0 and s[i] == '0') or (i % 2 != 0 and s[i] == '1')): 
                 Zero += 1
-        return min(One,Zero)
+        return min(One,x - One)
