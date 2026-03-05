@@ -6,6 +6,4 @@ class Solution:
         for i in range(x):
             if((i % 2 == 0 and s[i] == '1') or (i % 2 != 0 and s[i] == '0')):
                One += 1
-            elif((i % 2 == 0 and s[i] == '0') or (i % 2 != 0 and s[i] == '1')): 
-                Zero += 1
         return min(One,x - One)
