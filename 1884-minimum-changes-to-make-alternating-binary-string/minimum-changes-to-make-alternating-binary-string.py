@@ -1,20 +1,11 @@
 class Solution:
     def minOperations(self, s: str) -> int:
-        One = ""
-        Zero = ""
+        One = 0
+        Zero = 0
         x = len(s)
         for i in range(x):
-            if(i % 2 == 0):
-                One += '1'
-                Zero += '0'
-            else:
-                One += '0'
-                Zero += '1'
-        oc = zc = 0
-        for i in range(x):
-            if(One[i] != s[i]):
-                oc += 1
-            elif(Zero[i] != s[i]):
-                zc += 1
-        return min(oc,zc)
-        
+            if((i % 2 == 0 and s[i] == '1') or (i % 2 != 0 and s[i] == '0')):
+               One += 1
+            elif((i % 2 == 0 and s[i] == '0') or (i % 2 != 0 and s[i] == '1')): 
+                Zero += 1
+        return min(One,Zero)
