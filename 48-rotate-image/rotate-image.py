@@ -3,10 +3,9 @@ class Solution:
         """
         Do not return anything, modify matrix in-place instead.
         """
-        n = len(matrix)
-        for i in range(n - 1):
-            for j in range(i+1,n):
-                matrix[i][j],matrix[j][i] = matrix[j][i],matrix[i][j]#swap(matrix[i][j],matrix[j][i])
-        for i in range(n):
-            matrix[i]= matrix[i][::-1]
-        return matrix
+        m, n = len(matrix),len(matrix[0])
+        for i in range(m):
+            for j in range(i + 1,n):
+                matrix[i][j],matrix[j][i] = matrix[j][i],matrix[i][j]
+        for r in range(m): 
+            matrix[r] = list(reversed(matrix[r]))
