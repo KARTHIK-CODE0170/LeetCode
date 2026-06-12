@@ -1,32 +1,20 @@
 class Solution:
-    def fun(self,arr,low,high,k):
-        if low <= high:
-            mid = (high - low) //2 + low
-            if arr[mid] == k:
-                return mid
-            elif arr[mid] > k:
-                return self.fun(arr,low,mid - 1,k)
-            else:
-                return self.fun(arr,mid + 1,high,k)
-        else:
-            return -1
-
-
     def search(self, nums: List[int], target: int) -> int:
-        
-        #find the rotated index
-        idx = len(nums) -1
-        
-
-        for i in range(1,len(nums)):
-            if nums[i] < nums[i - 1]:
-                idx = i
-                break
-
-        if target <= nums[-1] and target >= nums[idx]:
-            return  self.fun(nums,idx,len(nums)-1,target)
-        elif target >= nums[0] and target <= nums[idx - 1]:
-            return self.fun(nums,0,idx -1,target)
-        else:
-            return -1 
-        
+        low, high = 0, len(nums) - 1
+        ans = 0
+        k = target
+        while low <= high:
+            mid = (high - low) //2  + low
+            if nums[mid] == k:
+                return mid
+            if nums[low] <= nums[mid]:
+                if nums[low] <= target < nums[mid]:
+                    high = mid - 1
+                else:
+                    low = mid + 1
+            else:
+                if nums[mid] < target <= nums[high]:
+                    low = mid + 1
+                else:
+                    high = mid - 1
+        return -1
