@@ -1,17 +1,17 @@
-import math
+import math as m
 class Solution:
-    def fun(self,arr,ele):
-        ans = 0
+    def fun(self,arr,mid,hr):
+        cnt = 0
         for i in arr:
-            ans += math.ceil(i/ele)
-        return ans
-    def minEatingSpeed(self, piles: List[int], h: int) -> int:
-        low = 1
-        high = max(piles)
-        while low <= high:
-            mid = (high + low) //2
-            if self.fun(piles,mid) <= h:
-                high = mid - 1
+            cnt += m.ceil(i/mid)
+        return cnt <= hr 
+
+    def minEatingSpeed(self, arr: List[int], h: int) -> int:
+        l, hi = 1 ,max(arr)
+        while l <= hi:
+            mid = (hi - l) // 2 + l
+            if self.fun(arr,mid,h):
+                hi = mid - 1
             else:
-                low = mid + 1
-        return low
+                l = mid + 1
+        return l
