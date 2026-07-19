@@ -11,11 +11,11 @@ class Solution:
         return False
     def searchMatrix(self, mat: List[List[int]], target: int) -> bool:
         up, down = 0 , len(mat) - 1
-        n = len(mat[0])
+        n = len(mat[0]) - 1
         while up <= down:
             mid = (up + down) // 2
-            if mat[mid][0] <= target <= mat[mid][n - 1]:
-                if self.fun(mat[mid],0,n-1,target):
+            if mat[mid][0] <= target <= mat[mid][n]:
+                if self.fun(mat[mid],0,n,target):
                     return True
                 else:
                     return False
