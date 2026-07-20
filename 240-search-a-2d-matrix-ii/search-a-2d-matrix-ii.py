@@ -3,12 +3,11 @@ class Solution:
         m = len(mat)
         n = len(mat[0])
         row, col = m - 1, 0
-        curr = mat[row][col]
         while row > -1 and col < n :
-            curr = mat[row][col]
-            if curr == target:
+            
+            if  mat[row][col] == target:
                 return True
-            elif target < curr:
+            elif target <  mat[row][col]:
                 row = row - 1
                 # curr = mat[row][col]
             else:
