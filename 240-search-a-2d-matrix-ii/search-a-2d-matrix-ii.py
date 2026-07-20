@@ -11,7 +11,7 @@ class Solution:
             elif target < curr:
                 row = row - 1
                 # curr = mat[row][col]
-            elif target > curr:
+            else:
                 col = col + 1
                 
         return False
