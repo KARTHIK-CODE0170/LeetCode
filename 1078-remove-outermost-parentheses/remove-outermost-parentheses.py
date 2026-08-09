@@ -1,4 +1,4 @@
-from collections import deque
+# from collections import deque
 class Solution:
     def removeOuterParentheses(self, s: str) -> str:
         arr = []
