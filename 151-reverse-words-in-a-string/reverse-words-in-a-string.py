@@ -16,6 +16,14 @@ class Solution:
         # if i == -1:
         #     res.append(s[i + 1,j + 1])
         return ' '.join(res)
+
+
+        #or
+        '''
+        arr = s.split()
+        arr.reverse()
+        return ' '.join(arr)
+        '''
             
 
 
