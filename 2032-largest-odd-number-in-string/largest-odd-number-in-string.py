@@ -12,3 +12,4 @@ class Solution:
             if odd_number.get(num[j],False):
                 return num[:j+1]
         return ""
+        #or just use in 
