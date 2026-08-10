@@ -1,9 +1,9 @@
 class Solution:
     def findDuplicate(self, nums: List[int]) -> int:
-        freq = dict()
+        visited = [False] * (len(nums) + 1)
         for i in nums:
-            if freq.get(i,0) + 1 > 1: 
+            if visited[i]:
                 return i
-            freq[i] = freq.get(i,0) + 1
+            visited[i] = True
         return 0
         
