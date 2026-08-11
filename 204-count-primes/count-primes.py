@@ -1,6 +1,8 @@
 class Solution:
+    #Sieve of Eratosthenes
+
     def fun(self,n):
-        arr = [True] * (n )
+        arr = [True] * (n)
         # res = []
         i = 2
         while i * i <= n:
