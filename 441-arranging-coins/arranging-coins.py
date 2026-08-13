@@ -11,7 +11,7 @@ class Solution:
                 low = mid + 1
             else:
                 high = mid - 1
-        return high
+        return low -1
 
 
     def arrangeCoins(self, n: int) -> int:
