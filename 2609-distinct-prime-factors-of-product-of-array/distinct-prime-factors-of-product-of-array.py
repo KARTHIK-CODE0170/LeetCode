@@ -16,9 +16,12 @@ class Solution:
     def distinctPrimeFactors(self, nums: List[int]) -> int:
         prime_number = self.prime(max(nums))
 
-        p = dict()
+        p = set()
         for i in nums:
             while i > 1:
-                p[prime_number[i]]  = p.get(prime_number[i],0) + 1
+                p.add(prime_number[i])
                 i //= prime_number[i]
         return len(p)
+
+
+
