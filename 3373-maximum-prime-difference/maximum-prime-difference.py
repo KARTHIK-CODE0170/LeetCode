@@ -1,29 +1,23 @@
-arr = [True] * 101
-prime = set()
-arr[0] = arr[1] = False
-i = 2
-while i <= 101:
-    j = i * i
-    while j <= 101:
-        arr[j] = False
-        j += i
-    i += 1   
-for i in range(len(arr)) :
-    if arr[i]:
-        prime.add(i)
 class Solution:
     def maximumPrimeDifference(self, nums: List[int]) -> int:
-        first = last = -1
+        def isPrime(x):
+            if x < 2:
+                return False
+            if x == 2 or x == 3 :
+                return True
+            if x % 2 == 0 or x % 3 == 0:
+                return False
+            for i in range(5,int(sqrt(x))  +1,6):
+                if x % i == 0 or (x % (i + 2) == 0) :
+                    return False
+            return True
+        left,right = 0,0
         for i in range(len(nums)):
-            if nums[i] in prime:
-                if first == -1:
-                    first = i
-                else:
-                    last = i
-        if first != -1 and last != -1:
-            return last - first
-        else:
-            return 0
-
-        
-        
+            if isPrime(nums[i]):
+                left = i
+                break
+        for i in range(len(nums)-1,-1,-1):
+            if isPrime(nums[i]):
+                right = i
+                break
+        return right - left
