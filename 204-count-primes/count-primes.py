@@ -1,6 +1,4 @@
 class Solution:
-    #Sieve of Eratosthenes
-
     def fun(self,n):
         arr = [True] * (n)
         # res = []
