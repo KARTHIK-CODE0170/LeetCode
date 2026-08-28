@@ -1,17 +1,20 @@
 class Solution:
     def numberOfSubstrings(self, s: str) -> int:
-        left = right = 0
         freq = dict()
-        cnt = 0
+        left,right = 0,0
         n = len(s)
-        while right < n:
-            char = s[right]
-            freq[char] = freq.get(char,0) + 1
+        cnt = 0
+        while right < len(s):
+            freq[s[right]] = freq.get(s[right],0) + 1
+
             while len(freq) == 3:
-                cnt += n - right
+                cnt += n - (right - left + 1) + 1
+                n-=1
                 freq[s[left]] -= 1
                 if freq[s[left]] == 0:
                     freq.pop(s[left])
                 left += 1
             right += 1
         return cnt
+
+
